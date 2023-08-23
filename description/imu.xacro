@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+    <joint name="imu_joint" type="fixed">
+        <parent link="chassis"/>
+        <child link="imu_frame"/>
+        <origin xyz="0.25 0 0.155" rpy="0 0 0"/>
+    </joint>
+
+    <link name="imu_frame">
+        <visual>
+            <geometry>
+                <cylinder radius="0.025" length="0.04"/>
+                <material name="balck"/>
+            </geometry>
+        </visual>
+        <collision>
+            <geometry>
+                <cylinder radius="0.025" length="0.04"/>
+            </geometry>
+        </collision>
+        <xacro:inertial_cylinder mass="0.1" length="0.04" radius="0.025">
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+        </xacro:inertial_cylinder>
+    </link>
+
+    <gazebo reference="imu_frame">
+        <material>Gazebo/Black</material>
+        <sensor name="imu_sensor" type="imu">
+            <pose>0 0 0.1 0 0 0</pose> <!-- Konum (x, y, z) ve Oryantasyon (roll, pitch, yaw) -->
+            <imu>
+                <noise>
+                <type>gaussian</type>
+                <rate>0.01</rate> <!-- Açısal hız ölçüm gürültüsü (rad/s) -->
+                <accel>0.05</accel> <!-- İvme ölçüm gürültüsü (m/s^2) -->
+                </noise>
+            </imu>
+        </sensor>
+    </gazebo>
+
+</robot>
