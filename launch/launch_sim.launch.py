@@ -31,7 +31,7 @@ def generate_launch_description():
                                    '-entity', 'my_bot'],
                         output='screen'
     )
-
+    """
     slam_node = Node(
         package='slam_toolbox',
         executable='async_slam_toolbox_node',
@@ -39,8 +39,6 @@ def generate_launch_description():
         output='screen',
         parameters=[{'use_sim_time': True}],
     )
-    
-    """
     navigation_node = Node(
         package='nav2_bringup',
         executable='bringup',
@@ -54,6 +52,6 @@ def generate_launch_description():
         world_arg,
         gazebo,
         spawn_entity,
-        slam_node,
+        #slam_node,
        #navigation_node,
     ])
