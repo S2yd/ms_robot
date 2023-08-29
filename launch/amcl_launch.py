@@ -1,25 +1,19 @@
 #!/usr/bin/env python3
-import os
-from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
 from launch_ros.actions import Node
 
 def generate_launch_description():
 
-    # Harita dosyasının yolu
-    map_path = os.path.join(get_package_share_directory('articubot_one'), 'config', 'ms_save.yaml' )
-
-    # Harita sunucusu düğümü
-    map_server_cmd = Node(
-        package='nav2_map_server',
-        executable='map_server',
+    # AMCL düğümü konfigürasyonu
+    amcl = Node(
+        package='nav2_amcl',
+        executable='amcl',
         output='screen',
-        parameters=[{'yaml_filename': map_path,
-                    'use_sim_time': True}]
+        parameters=["/home/mohammed/ros2_ws/src/articubot_one/config/amcl_file.yaml"]
     )
-
-    # Yaşam döngüsü yöneticisi düğümü için gerekli parametreler
-    lifecycle_nodes = ['map_server']
+    
+    # Yaşam döngüsü yöneticisi için gerekli parametreler
+    lifecycle_nodes = ['amcl']
     autostart = True
 
     # Yaşam döngüsü yöneticisi düğümünü başlatma komutu
@@ -35,6 +29,6 @@ def generate_launch_description():
 
     # Başlatma açıklamalarını içeren bir liste döndürme
     return LaunchDescription([
-        map_server_cmd,
+        amcl,
         start_lifecycle_manager_cmd,
     ])

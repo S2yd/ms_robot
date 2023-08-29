@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import os
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
@@ -31,27 +33,10 @@ def generate_launch_description():
                                    '-entity', 'my_bot'],
                         output='screen'
     )
-    """
-    slam_node = Node(
-        package='slam_toolbox',
-        executable='async_slam_toolbox_node',
-        name='slam_toolbox',
-        output='screen',
-        parameters=[{'use_sim_time': True}],
-    )
-    navigation_node = Node(
-        package='nav2_bringup',
-        executable='bringup',
-        name='navigation',
-        output='screen',
-        parameters=[{'use_sim_time': True}],
-    )
-    """
+   
     return LaunchDescription([
         rsp,
         world_arg,
         gazebo,
         spawn_entity,
-        #slam_node,
-       #navigation_node,
     ])
