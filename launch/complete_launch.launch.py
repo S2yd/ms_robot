@@ -10,35 +10,35 @@ def generate_launch_description():
     # RViz launch açıklaması
     rviz_l = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
-            os.path.join(get_package_share_directory('articubot_one'), 'launch/rviz2_launch.py')
+            os.path.join(get_package_share_directory('ms_robot'), 'launch/rviz2_launch.py')
         )
     )
 
     # Harita servisi launch açıklaması
     mapser_l = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
-            os.path.join(get_package_share_directory('articubot_one'), 'launch/my_map_launch.py')
+            os.path.join(get_package_share_directory('ms_robot'), 'launch/my_map_launch.py')
         )
     )
 
     # Genel simülasyon launch açıklaması
     allaun_l = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
-            os.path.join(get_package_share_directory('articubot_one'), 'launch/sim_launch.py')
+            os.path.join(get_package_share_directory('ms_robot'), 'launch/sim_launch.py')
         )
     )
 
     # AMCL launch açıklaması
     amcl_l = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
-            os.path.join(get_package_share_directory('articubot_one'), 'launch/amcl_launch.py')
+            os.path.join(get_package_share_directory('ms_robot'), 'launch/amcl_launch.py')
         )
     )
 
     # Navigasyon launch açıklaması
     navig_l = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
-            os.path.join(get_package_share_directory('articubot_one'), 'launch/navigation_launch.py')
+            os.path.join(get_package_share_directory('ms_robot'), 'launch/navigation_launch.py')
         )
     )
 

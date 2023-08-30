@@ -1,15 +1,19 @@
 #!/usr/bin/env python3
+import os
+from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
 from launch_ros.actions import Node
 
 def generate_launch_description():
 
+    amcl_path = os.path.join(get_package_share_directory('ms_robot'), 'config', 'amcl_file.yaml' )
     # AMCL düğümü konfigürasyonu
     amcl = Node(
         package='nav2_amcl',
         executable='amcl',
         output='screen',
-        parameters=["/home/mohammed/ros2_ws/src/articubot_one/config/amcl_file.yaml"]
+        parameters=[{'yaml_filename': amcl_path,
+                    'use_sim_time': True}]
     )
     
     # Yaşam döngüsü yöneticisi için gerekli parametreler

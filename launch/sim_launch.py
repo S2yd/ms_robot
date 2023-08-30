@@ -9,7 +9,7 @@ from launch_ros.actions import Node
 
 def generate_launch_description():
 
-    package_name='articubot_one' 
+    package_name='ms_robot' 
 
     rsp = IncludeLaunchDescription(
                 PythonLaunchDescriptionSource([os.path.join(
@@ -19,8 +19,8 @@ def generate_launch_description():
 
     world_arg = DeclareLaunchArgument(
         'world',
-        default_value=[os.path.join(get_package_share_directory('articubot_one'), 'worlds', 'obstacles.world')],
-        description='world:=./src/articubot_one/worlds/obstacles.world'
+        default_value=[os.path.join(get_package_share_directory('ms_robot'), 'worlds', 'obstacles.world')],
+        description='world:=./src/ms_robot/worlds/obstacles.world'
     )
    
     gazebo = IncludeLaunchDescription(
