@@ -15,7 +15,6 @@ def generate_launch_description():
         parameters=[{'yaml_filename': amcl_path,
                     'use_sim_time': True}]
     )
-    
     # Yaşam döngüsü yöneticisi için gerekli parametreler
     lifecycle_nodes = ['amcl']
     autostart = True
