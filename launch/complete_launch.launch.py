@@ -22,7 +22,7 @@ def generate_launch_description():
     )
 
     # Genel simülasyon launch açıklaması
-    allaun_l = IncludeLaunchDescription(
+    sim_l = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             os.path.join(get_package_share_directory('ms_robot'), 'launch/sim_launch.py')
         )
@@ -45,7 +45,7 @@ def generate_launch_description():
     # Aksiyonları sırayla ekleyerek LaunchDescription nesnesini oluştur
     ld.add_action(navig_l)   
     ld.add_action(amcl_l)
-    ld.add_action(allaun_l)
+    ld.add_action(sim_l)
     ld.add_action(mapser_l)
     ld.add_action(rviz_l) 
 

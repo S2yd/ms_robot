@@ -1,7 +1,7 @@
 slam_toolbox:
   ros__parameters:
 
-    # Plugin parametreleri
+    #Plugin parametreleri
     solver_plugin: solver_plugins::CeresSolver
     ceres_linear_solver: SPARSE_NORMAL_CHOLESKY
     ceres_preconditioner: SCHUR_JACOBI
@@ -9,14 +9,14 @@ slam_toolbox:
     ceres_dogleg_type: TRADITIONAL_DOGLEG
     ceres_loss_function: None
 
-    # ROS Parametreleri
+    #ROS Parametreleri
     odom_frame: odom
     map_frame: map
     base_frame: base_footprint
     scan_topic: /scan
-    mode: localization #mapping
-    map_file_name: /home/mohammed/ros2_ws/ms_seri
-    # map_start_pose: [0.0, 0.0, 0.0]
+    mode: localization #mapping 
+    map_file_name: /home/ms/ms_ws/src/ms_robot/config/hospital_map_serial
+    #map_start_pose: [0.0, 0.0, 0.0]
     map_start_at_dock: true
 
     debug_logging: false

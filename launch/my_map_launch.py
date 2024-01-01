@@ -7,7 +7,7 @@ from launch_ros.actions import Node
 def generate_launch_description():
 
     # Harita dosyasının yolu
-    map_path = os.path.join(get_package_share_directory('ms_robot'), 'config', 'ms_save.yaml' )
+    map_path = os.path.join(get_package_share_directory('ms_robot'), 'config', 'hospital_map_save.yaml' )
 
     # Harita sunucusu düğümü
     map_server_cmd = Node(
